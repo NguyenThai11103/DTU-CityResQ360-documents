@@ -6,10 +6,10 @@ const config: Config = {
   title: 'CityResQ360',
   tagline: 'Nền tảng phản ánh, cảnh báo & giám sát đô thị thông minh',
   favicon: 'img/favicon.ico',
-  url: 'https://truongpyeo.github.io',
-  baseUrl: '/CityResQ360-DTUDZ/',
-  organizationName: 'Truongpyeo',
-  projectName: 'CityResQ360-DTUDZ',
+  url: 'https://nguyenthai11103.github.io',
+  baseUrl: '/DTU-CityResQ360-documents/',
+  organizationName: 'NguyenThai11103',
+  projectName: 'DTU-CityResQ360-documents',
   trailingSlash: true,
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -25,7 +25,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
-          editUrl: 'https://github.com/Truongpyeo/CityResQ360-DTUDZ/edit/main/',
+          editUrl: 'https://github.com/NguyenThai11103/DTU-CityResQ360-documents/edit/master/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -55,7 +55,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/Truongpyeo/CityResQ360-DTUDZ',
+          href: 'https://github.com/NguyenThai11103/DTU-CityResQ360-documents',
           position: 'right',
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
@@ -87,7 +87,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/Truongpyeo/CityResQ360-DTUDZ',
+              href: 'https://github.com/NguyenThai11103/DTU-CityResQ360-documents',
             },
             {
               label: 'Issues',
