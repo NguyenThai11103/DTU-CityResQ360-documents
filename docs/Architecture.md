@@ -267,7 +267,6 @@ Thiết kế theo kiến trúc như hình vẽ bên dưới:
 | Developer | **Nguyễn Ngọc Duy Thái** | [kkdn011@gmail.com](mailto:kkdn011@gmail.com)                         |
 
 ## 📝 License
-
-Dự án được phân phối dưới giấy phép [MIT License](../LICENSE)
+Dự án được phân phối dưới giấy phép [MIT License](https://github.com/Truongpyeo/CityResQ360-DTUDZ/blob/master/LICENSE)
 
 *"Được phát triển với ❤️ bởi Nhóm DTU-DZ"*

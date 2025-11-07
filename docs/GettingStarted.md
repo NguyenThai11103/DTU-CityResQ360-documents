@@ -101,32 +101,6 @@
 | **Redis**    | 7.0+                 |
 | **Kafka**    | 3.0+                 |
 
-## 🚀 Bắt đầu nhanh
-
-Xem [Installation Guide](./Installation.md) để biết hướng dẫn cài đặt chi tiết.
-
-### Quick Start
-
-```bash
-# Clone repository
-git clone https://github.com/Truongpyeo/CityResQ360-DTUDZ.git
-cd CityResQ360-DTUDZ
-
-# Cài đặt dependencies
-composer install
-npm install
-
-# Cấu hình môi trường
-cp .env.example .env
-# Chỉnh sửa .env với thông tin database và API keys
-
-# Chạy migrations
-php artisan migrate
-
-# Khởi động server
-php artisan serve
-```
-
 ## 🔐 Bảo mật
 
 - Xác thực đa yếu tố
@@ -159,14 +133,9 @@ git commit -m "feat: add new feature"
 git push origin feat/my-feature
 ```
 
-### Contribution Guidelines
-- ✅ Follow [Conventional Commits](https://www.conventionalcommits.org/)
-- ✅ Write tests for new code
-- ✅ Update documentation
-- ✅ Follow code style guide
 
 ## 📝 License
 
-Released under the MIT License – see [LICENSE](../LICENSE) file for details.
+Dự án được phân phối dưới giấy phép [MIT License](https://github.com/Truongpyeo/CityResQ360-DTUDZ/blob/master/LICENSE)
 
 © 2025 CityResQ360 – Được phát triển với ❤️ bởi Nhóm DTU-DZ

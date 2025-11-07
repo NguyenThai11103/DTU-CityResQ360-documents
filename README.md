@@ -315,13 +315,9 @@ Hệ thống được tổ chức thành các dịch vụ độc lập (Microser
 ## 🐛 Báo lỗi
 
 Nếu bạn phát hiện lỗi, vui lòng tạo issue mới với:
-
 - Mô tả chi tiết lỗi
-
 - Các bước tái hiện
-
 - Screenshots nếu có
-
 - Môi trường (browser, OS...)
 
 ---
@@ -329,11 +325,8 @@ Nếu bạn phát hiện lỗi, vui lòng tạo issue mới với:
 ## 🤝 Đóng góp
 
 - Fork → tạo branch feature/{tên} → mở Pull Request mô tả thay đổi.  
-
 - Viết unit test cho tính năng mới; tuân thủ PSR-12 (PHP).
-
 - Báo lỗi bảo mật trực tiếp cho maintainer trước khi public issue.  
-
 - Chúng tôi rất hoan nghênh mọi đóng góp! Xem [CONTRIBUTING](https://github.com/Truongpyeo/CityResQ360-DTUDZ/blob/master/LICENSE) để biết thêm chi tiết.
 
 ---

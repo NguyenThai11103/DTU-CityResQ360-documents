@@ -115,7 +115,6 @@ Hệ thống **CityResQ360** được phát triển nhằm phục vụ nhiều n
 - Giám sát hoạt động của toàn hệ thống và API tích hợp.
 - Cấu hình nguồn dữ liệu, cảm biến và tích hợp bản đồ.
 - Theo dõi hiệu năng và cảnh báo sự cố kỹ thuật.
-
 ---
 
 ### 🧠 5. Nhà nghiên cứu & nhà phát triển
@@ -126,9 +125,7 @@ Hệ thống **CityResQ360** được phát triển nhằm phục vụ nhiều n
 - Nghiên cứu ứng dụng AI, NLP, Vision, IoT trong quản lý đô thị.
 - Thử nghiệm mô hình Digital Twin và dự báo rủi ro hạ tầng.
 - Đóng góp module mở rộng hoặc plugin mới cho hệ thống.
-
 ---
-
 ## ⚙️ Yêu cầu hệ thống
 
 | Software     | Minimum Version       |
@@ -140,13 +137,12 @@ Hệ thống **CityResQ360** được phát triển nhằm phục vụ nhiều n
 | **Redis**    | 7.0+                 |
 | **Kafka**    | 3.0+                 |
 
-## 🔐 Bảo mật
-
-- Xác thực đa yếu tố
-- Mã hóa dữ liệu nhạy cảm
-- API rate limiting
-- Access control
-- Audit logs
+## 🐛 Báo lỗi
+Nếu bạn phát hiện lỗi, vui lòng tạo issue mới với:
+- Mô tả chi tiết lỗi
+- Các bước tái hiện
+- Screenshots nếu có
+- Môi trường (browser, OS...)
 
 ## 👥 Team Members
 
@@ -157,30 +153,14 @@ Hệ thống **CityResQ360** được phát triển nhằm phục vụ nhiều n
 | Developer | **Nguyễn Ngọc Duy Thái** | [kkdn011@gmail.com](mailto:kkdn011@gmail.com)                         |
 
 ## 🤝 Đóng góp
-
-```bash
-# 1. Fork repository
-git clone https://github.com/Truongpyeo/CityResQ360-DTUDZ.git
-cd CityResQ360-DTUDZ
-
-# 2. Create feature branch
-git checkout -b feat/my-feature
-
-# 3. Commit changes
-git commit -m "feat: add new feature"
-
-# 4. Create Pull Request
-git push origin feat/my-feature
-```
-
-### Contribution Guidelines
-- ✅ Follow [Conventional Commits](https://www.conventionalcommits.org/)
-- ✅ Write tests for new code
-- ✅ Update documentation
-- ✅ Follow code style guide
+- Fork → tạo branch feature/ten → mở Pull Request mô tả thay đổi.
+- Viết unit test cho tính năng mới; tuân thủ PSR-12 (PHP).
+- Báo lỗi bảo mật trực tiếp cho maintainer trước khi public issue.  
+- Chúng tôi rất hoan nghênh mọi đóng góp! Xem [CONTRIBUTING](https://github.com/Truongpyeo/CityResQ360-DTUDZ/blob/master/CONTRIBUTING) để biết thêm chi tiết.
 
 ## 📝 License
 
-Released under the MIT License – see [LICENSE](../LICENSE) file for details.
+Dự án được phân phối dưới giấy phép [MIT License](https://github.com/Truongpyeo/CityResQ360-DTUDZ/blob/master/LICENSE)
+
 
 © 2025 CityResQ360 – Được phát triển với ❤️ bởi Nhóm DTU-DZ
