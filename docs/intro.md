@@ -67,33 +67,67 @@
 - Keycloak - SSO/Identity Management
 - JWT - API authentication
 
-## 👥 Đối tượng người dùng
+## 🎯 Đối tượng hướng đến
 
-### 👥 Người dân
-- Gửi phản ánh kèm hình ảnh, mô tả và vị trí GPS
-- Theo dõi tiến trình xử lý phản ánh
-- Nhận thông báo và cảnh báo khu vực nguy hiểm
-- Nhận điểm thưởng CityPoint
+![Đối tượng hướng đến](../static/img/doituong.png)
 
-### 🏛️ Cơ quan chức năng
-- Tiếp nhận, phân loại và xử lý phản ánh tự động
-- Quản lý dữ liệu sự cố, bản đồ realtime và báo cáo thống kê
-- Theo dõi chỉ số minh bạch và tốc độ phản hồi
 
-### 🤝 NGO/Tình nguyện viên
-- Truy cập dữ liệu công khai theo chuẩn NGSI-LD
-- Kết nối dịch vụ hoặc cảm biến IoT vào hệ thống
-- Phân tích xu hướng và rủi ro đô thị
+Hệ thống **CityResQ360** được phát triển nhằm phục vụ nhiều nhóm người dùng trong đô thị, tập trung vào việc phản ánh, giám sát và cảnh báo sự cố hạ tầng, môi trường và an toàn đô thị theo thời gian thực.
 
-### 🧑‍💼 Quản trị viên
-- Quản lý người dùng, phân quyền theo vai trò
-- Giám sát hoạt động của toàn hệ thống
-- Cấu hình nguồn dữ liệu, cảm biến và tích hợp bản đồ
+---
 
-### 🧠 Nhà nghiên cứu
-- Truy cập dữ liệu mở để phân tích xu hướng đô thị
-- Nghiên cứu ứng dụng AI, NLP, Vision, IoT
-- Thử nghiệm mô hình Digital Twin
+### 👥 1. Người dân trong khu vực bị ảnh hưởng
+**Mục tiêu:** Hỗ trợ người dân nhanh chóng gửi yêu cầu cứu trợ và nhận thông tin an toàn trong tình huống khẩn cấp.  
+
+**Lợi ích:**
+- Gửi phản ánh kèm hình ảnh, mô tả và vị trí GPS.
+- Theo dõi tiến trình xử lý phản ánh của cơ quan chức năng.
+- Nhận thông báo và cảnh báo khu vực nguy hiểm (ngập, kẹt xe, ô nhiễm...).
+- Nhận điểm thưởng CityPoint khi đóng góp thông tin hữu ích.
+
+---
+
+### 🏛️ 2. Cơ quan chức năng & tổ chức cứu trợ
+**Mục tiêu:** Hỗ trợ các đơn vị quản lý thảm họa và cứu hộ **điều phối nguồn lực và nhân sự** hiệu quả.  
+
+**Lợi ích:**
+- Tiếp nhận, phân loại và xử lý phản ánh tự động theo mức độ ưu tiên.
+- Quản lý dữ liệu sự cố, bản đồ realtime và báo cáo thống kê.
+- Theo dõi chỉ số minh bạch và tốc độ phản hồi.
+---
+
+### 🤝 3. Tình nguyện viên & tổ chức phi chính phủ (NGO)
+**Mục tiêu:** Kết nối và quản lý hoạt động của các cá nhân/tổ chức cứu trợ tự nguyện.  
+
+**Lợi ích:**
+- Truy cập dữ liệu công khai theo chuẩn NGSI-LD.
+- Kết nối dịch vụ hoặc cảm biến IoT vào hệ thống.
+- Phân tích xu hướng và rủi ro đô thị phục vụ nghiên cứu & kinh doanh.
+- Cung cấp giải pháp mở rộng: camera, AI Vision, bản đồ số, v.v.
+
+---
+
+### 🧑‍💼 4. Quản trị viên hệ thống (Admin)
+**Mục tiêu:** Quản lý toàn bộ hệ thống và người dùng, đảm bảo vận hành ổn định.  
+
+**Lợi ích:**
+- Quản lý người dùng, phân quyền theo vai trò.
+- Giám sát hoạt động của toàn hệ thống và API tích hợp.
+- Cấu hình nguồn dữ liệu, cảm biến và tích hợp bản đồ.
+- Theo dõi hiệu năng và cảnh báo sự cố kỹ thuật.
+
+---
+
+### 🧠 5. Nhà nghiên cứu & nhà phát triển
+**Mục tiêu:** Mở rộng khả năng nghiên cứu và ứng dụng công nghệ mới trong lĩnh vực cứu hộ - cứu nạn.  
+
+**Lợi ích:**
+- Truy cập dữ liệu mở (Open Data) để phân tích xu hướng đô thị.
+- Nghiên cứu ứng dụng AI, NLP, Vision, IoT trong quản lý đô thị.
+- Thử nghiệm mô hình Digital Twin và dự báo rủi ro hạ tầng.
+- Đóng góp module mở rộng hoặc plugin mới cho hệ thống.
+
+---
 
 ## ⚙️ Yêu cầu hệ thống
 
