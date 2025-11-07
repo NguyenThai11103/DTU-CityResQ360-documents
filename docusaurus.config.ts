@@ -6,7 +6,7 @@ const config: Config = {
   title: 'CityResQ360',
   tagline: 'Nền tảng phản ánh, cảnh báo & giám sát đô thị thông minh',
   favicon: 'img/favicon.ico',
-  url: 'https://nguyenthaion11103.github.io',
+  url: 'https://nguyenthai11103.github.io',
   baseUrl: '/DTU-CityResQ360-documents/',
   organizationName: 'NguyenThai11103',
   projectName: 'DTU-CityResQ360-documents',
@@ -87,11 +87,11 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/Truongpyeo/CityResQ360-DTUDZ',
+              href: 'https://github.com/NguyenThai11103/DTU-CityResQ360-documents',
             },
             {
               label: 'Issues',
-              href: 'https://github.com/Truongpyeo/CityResQ360-DTUDZ/issues',
+              href: 'https://github.com/NguyenThai11103/DTU-CityResQ360-documents/issues',
             },
           ],
         },
