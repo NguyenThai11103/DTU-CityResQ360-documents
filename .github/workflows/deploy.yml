@@ -7,6 +7,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     name: Deploy Docusaurus to GitHub Pages
@@ -27,6 +30,17 @@ jobs:
 
       - name: Build website
         run: yarn build
+        env:
+          NODE_ENV: production
+
+      - name: Verify build output
+        run: |
+          if [ ! -d "build" ]; then
+            echo "Error: build directory not found!"
+            exit 1
+          fi
+          echo "Build directory exists. Contents:"
+          ls -la build/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -35,4 +49,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           cname: false
+          force_orphan: false
 

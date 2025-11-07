@@ -91,7 +91,7 @@ const config: Config = {
             },
             {
               label: 'Issues',
-              href: 'https://github.com/Truongpyeo/CityResQ360-DTUDZ/issues',
+              href: 'https://github.com/NguyenThai11103/DTU-CityResQ360-documents/issues',
             },
           ],
         },
