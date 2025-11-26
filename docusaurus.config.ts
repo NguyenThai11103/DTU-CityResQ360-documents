@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'CityResQ360',
   tagline: 'Nền tảng phản ánh, cảnh báo & giám sát đô thị thông minh',
-  favicon: 'img/favicon.ico',
+  favicon: 'logo.png',
   url: 'https://nguyenthai11103.github.io',
   baseUrl: '/DTU-CityResQ360-documents/',
   organizationName: 'NguyenThai11103',
@@ -41,7 +41,7 @@ const config: Config = {
       title: 'CityResQ360',
       logo: {
         alt: 'CityResQ360 Logo',
-        src: 'img/logo.svg',
+        src: '/logo.png',
       },
       items: [
         {

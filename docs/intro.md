@@ -1,166 +1,113 @@
-# CityResQ360
-
-### *Nền tảng phản ánh, cảnh báo & giám sát đô thị thông minh*
-> *"🏙️ Smart City Platform 🤖"*
+# 🌆 CityResQ360 — Chung tay vì một đô thị thông minh & an toàn
 
 ![Banner](../static/img/Banner.png)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](../LICENSE)
+> _"Kết nối người dân - Chính quyền - Công nghệ"_
 
-## 📖 Tổng quan
-
-**CityResQ360** là hệ thống web + mobile mã nguồn mở giúp người dân, chính quyền và hệ thống AI phối hợp trong việc phát hiện, phản ánh và xử lý sự cố đô thị theo thời gian thực. Mục tiêu của dự án là tăng tính minh bạch, cải thiện tốc độ phản ứng của cơ quan chức năng và ứng dụng trí tuệ nhân tạo để hướng tới một thành phố vận hành tự động, an toàn và bền vững hơn.
-
-## 🎯 Mục tiêu
-
-- **Tăng tính minh bạch**: Mọi phản ánh được ghi nhận và theo dõi công khai
-- **Tối ưu hóa quy trình**: Sử dụng AI để phân loại, đánh giá mức độ và gợi ý xử lý
-- **Dữ liệu mở**: Xây dựng hệ thống dữ liệu đô thị mở theo chuẩn NGSI-LD
-- **Khuyến khích tham gia**: Hệ thống CityPoint thưởng điểm cho đóng góp hữu ích
-- **Nghiên cứu & phát triển**: Hỗ trợ phát triển giải pháp thông minh cho thành phố
-
-## 💡 Tính năng chính
-
-### 🤖 Phản ánh & nhận diện tự động
-- AI Vision & NLP phân tích hình ảnh, âm thanh, nội dung phản ánh
-- Phân loại mức độ nguy hiểm & cảnh báo khẩn cấp
-- Gợi ý hướng dẫn an toàn và thông báo cộng đồng
-
-### 📡 Giám sát & quản lý realtime
-- Bản đồ trực quan thể hiện trạng thái từng khu vực
-- Dashboard phân tích thống kê phản ánh theo thời gian, vị trí và loại sự cố
-- Chấm điểm mức độ minh bạch và tốc độ phản hồi
-
-### 🏦 CityWallet – Hệ thống điểm thưởng
-- Công dân được thưởng điểm **CityPoint** khi phản ánh hữu ích
-- Đổi quà, voucher, hoặc sử dụng trong các dịch vụ đô thị
-
-## 🏗️ Kiến trúc hệ thống
-
-### Frontend
-- React Native - Ứng dụng di động đa nền tảng
-- Bản đồ realtime với tích hợp GPS
-- Camera integration để gửi phản ánh
-
-### Backend
-- Laravel Framework - API REST
-- Python FastAPI - AI Services
-- Microservices architecture
-- Event-driven design
-
-### Database & Storage
-- PostgreSQL/PostGIS - Dữ liệu quan hệ và địa lý
-- MinIO/S3 - Lưu trữ media
-- OpenSearch - Tìm kiếm nâng cao
-- Redis - Cache và queue
-
-### Message Queue
-- Kafka (Redpanda) - Event streaming
-- MQTT Broker (EMQX/Mosquitto) - IoT sensors
-
-### AI/ML
-- YOLOv8 / Detectron2 - Computer Vision
-- PhoBERT / XLM-R - NLP
-- Fusion Layer - Tổng hợp kết quả
-
-### Authentication
-- Keycloak - SSO/Identity Management
-- JWT - API authentication
-
-## 🎯 Đối tượng hướng đến
-
-![Đối tượng hướng đến](../static/img/doituong.png)
-
-
-Hệ thống **CityResQ360** được phát triển nhằm phục vụ nhiều nhóm người dùng trong đô thị, tập trung vào việc phản ánh, giám sát và cảnh báo sự cố hạ tầng, môi trường và an toàn đô thị theo thời gian thực.
+**CityResQ360**! Đây là dự án mã nguồn mở được xây dựng với mong muốn giúp thành phố trở nên an toàn và đáng sống hơn. CityResQ360 là cầu nối giúp người dân phản ánh nhanh các sự cố (như kẹt xe, ngập lụt, hỏa hoạn...) và giúp chính quyền tiếp nhận, xử lý thông tin kịp thời nhờ sự hỗ trợ của AI.
 
 ---
 
-### 👥 1. Người dân trong khu vực bị ảnh hưởng
-**Mục tiêu:** Hỗ trợ người dân nhanh chóng gửi yêu cầu cứu trợ và nhận thông tin an toàn trong tình huống khẩn cấp.  
+## 🤔 Tại sao lại có dự án này?
 
-**Lợi ích:**
-- Gửi phản ánh kèm hình ảnh, mô tả và vị trí GPS.
-- Theo dõi tiến trình xử lý phản ánh của cơ quan chức năng.
-- Nhận thông báo và cảnh báo khu vực nguy hiểm (ngập, kẹt xe, ô nhiễm...).
-- Nhận điểm thưởng CityPoint khi đóng góp thông tin hữu ích.
+Chúng ta đều thấy thành phố ngày càng đông đúc, và các vấn đề như kẹt xe, ngập nước hay tai nạn xảy ra thường xuyên hơn. Tuy nhiên:
 
----
+- Việc báo tin đôi khi còn thủ công, chậm trễ.
+- Thông tin đến cơ quan chức năng nhiều khi không đầy đủ hoặc bị trôi.
+- Thiếu một cái nhìn tổng quan, thời gian thực về những gì đang diễn ra.
 
-### 🏛️ 2. Cơ quan chức năng & tổ chức cứu trợ
-**Mục tiêu:** Hỗ trợ các đơn vị quản lý thảm họa và cứu hộ **điều phối nguồn lực và nhân sự** hiệu quả.  
-
-**Lợi ích:**
-- Tiếp nhận, phân loại và xử lý phản ánh tự động theo mức độ ưu tiên.
-- Quản lý dữ liệu sự cố, bản đồ realtime và báo cáo thống kê.
-- Theo dõi chỉ số minh bạch và tốc độ phản hồi.
----
-
-### 🤝 3. Tình nguyện viên & tổ chức phi chính phủ (NGO)
-**Mục tiêu:** Kết nối và quản lý hoạt động của các cá nhân/tổ chức cứu trợ tự nguyện.  
-
-**Lợi ích:**
-- Truy cập dữ liệu công khai theo chuẩn NGSI-LD.
-- Kết nối dịch vụ hoặc cảm biến IoT vào hệ thống.
-- Phân tích xu hướng và rủi ro đô thị phục vụ nghiên cứu & kinh doanh.
-- Cung cấp giải pháp mở rộng: camera, AI Vision, bản đồ số, v.v.
+CityResQ360 ra đời để giải quyết những vấn đề đó, hướng tới một quy trình xử lý nhanh hơn, minh bạch hơn và thông minh hơn.
 
 ---
 
-### 🧑‍💼 4. Quản trị viên hệ thống (Admin)
-**Mục tiêu:** Quản lý toàn bộ hệ thống và người dùng, đảm bảo vận hành ổn định.  
+## 👥 Dự án này dành cho ai?
 
-**Lợi ích:**
-- Quản lý người dùng, phân quyền theo vai trò.
-- Giám sát hoạt động của toàn hệ thống và API tích hợp.
-- Cấu hình nguồn dữ liệu, cảm biến và tích hợp bản đồ.
-- Theo dõi hiệu năng và cảnh báo sự cố kỹ thuật.
+![DoiTuong](../static/img/doituong.png)
+
+1. **Người dân:** Gửi phản ánh cực nhanh (kèm ảnh, vị trí), nhận cảnh báo nguy hiểm, và tích điểm **CityPoint** đổi quà.
+2. **Cơ quan chức năng:** Có công cụ quản lý trực quan, nắm bắt ngay các điểm nóng để điều phối xử lý.
+3. **Tình nguyện viên / NGO:** Dễ dàng tiếp cận thông tin để hỗ trợ cộng đồng.
+4. **Cộng đồng Developer:** Một sân chơi thú vị để tìm hiểu và ứng dụng công nghệ mới (AI, IoT, Big Data...).
+
 ---
 
-### 🧠 5. Nhà nghiên cứu & nhà phát triển
-**Mục tiêu:** Mở rộng khả năng nghiên cứu và ứng dụng công nghệ mới trong lĩnh vực cứu hộ - cứu nạn.  
+## ✨ Có gì đặc biệt?
 
-**Lợi ích:**
-- Truy cập dữ liệu mở (Open Data) để phân tích xu hướng đô thị.
-- Nghiên cứu ứng dụng AI, NLP, Vision, IoT trong quản lý đô thị.
-- Thử nghiệm mô hình Digital Twin và dự báo rủi ro hạ tầng.
-- Đóng góp module mở rộng hoặc plugin mới cho hệ thống.
+![ChucNang](../static/img/chucnang.png)
+
+- **AI thông minh:** Tự động phân tích hình ảnh để phân loại sự cố (cháy, ngập, tai nạn...) giúp giảm tải cho con người.
+- **Bản đồ Realtime:** Sự cố hiển thị ngay lập tức trên bản đồ, trực quan sinh động.
+- **CityPoint:** Cơ chế điểm thưởng để khuyến khích mọi người cùng đóng góp.
+- **Đa nền tảng:** App mobile cho người dân, Web dashboard chuyên nghiệp cho quản lý.
+
 ---
-## ⚙️ Yêu cầu hệ thống
 
-| Software     | Minimum Version       |
-| ------------ | --------------------- |
-| **Laravel**   | 12x                  |
-| **Python**   | 3.10+                |
-| **Node.js**  | >=18.0.0             |
-| **PostgreSQL** | 14+                |
-| **Redis**    | 7.0+                 |
-| **Kafka**    | 3.0+                 |
+## 🛠️ Công nghệ sử dụng
 
-## 🐛 Báo lỗi
-Nếu bạn phát hiện lỗi, vui lòng tạo issue mới với:
-- Mô tả chi tiết lỗi
-- Các bước tái hiện
-- Screenshots nếu có
-- Môi trường (browser, OS...)
+Hệ thống được xây dựng dựa trên các công nghệ hiện đại:
 
-## 👥 Team Members
+![KienTruc](../static/img/kientruc.png)
 
-| Role      | Name                    | Email                                                                 |
-| --------- | ----------------------- | --------------------------------------------------------------------- |
-| Developer | **Lê Thanh Trường**      | [thanhtruong23111999@gmail.com](mailto:thanhtruong23111999@gmail.com) |
-| Developer | **Nguyễn Văn Nhân**      | [vannhan130504@gmail.com](mailto:vannhan130504@gmail.com)             |
-| Developer | **Nguyễn Ngọc Duy Thái** | [kkdn011@gmail.com](mailto:kkdn011@gmail.com)                         |
+Hệ thống được thiết kế theo kiến trúc Microservices hiện đại, đảm bảo khả năng mở rộng và xử lý dữ liệu lớn:
 
-## 🤝 Đóng góp
-- Fork → tạo branch feature/ten → mở Pull Request mô tả thay đổi.
-- Viết unit test cho tính năng mới; tuân thủ PSR-12 (PHP).
-- Báo lỗi bảo mật trực tiếp cho maintainer trước khi public issue.  
-- Chúng tôi rất hoan nghênh mọi đóng góp! Xem [CONTRIBUTING](https://github.com/Truongpyeo/CityResQ360-DTUDZ/blob/master/CONTRIBUTING) để biết thêm chi tiết.
+| Thành phần         | Công nghệ sử dụng                                                   |
+| :----------------- | :------------------------------------------------------------------ |
+| **Mobile App**     | `React Native` (iOS & Android)                                      |
+| **Web Dashboard**  | `VueJS`                                                             |
+| **Backend Core**   | `Laravel` (PHP), `Redis` (Cache)                                    |
+| **AI Services**    | `FastAPI` (Python) cho NLP & Computer Vision                        |
+| **API Gateway**    | `Traefik`, `Keycloak` (Auth)                                        |
+| **Message Broker** | `Apache Kafka`, `MQTT` (EMQX/Mosquitto)                             |
+| **Realtime**       | `Reverb` (WebSocket)                                                |
+| **Database**       | `PostgreSQL` + `PostGIS` (GeoData), `MinIO` (Storage), `OpenSearch` |
 
-## 📝 License
+---
 
-Dự án được phân phối dưới giấy phép [MIT License](https://github.com/Truongpyeo/CityResQ360-DTUDZ/blob/master/LICENSE)
+## 🚀 Cách hoạt động
 
+Quy trình đơn giản như sau:
 
-© 2025 CityResQ360 – Được phát triển với ❤️ bởi Nhóm DTU-DZ
+1. **Người dân** thấy sự cố 📸 -> Chụp ảnh & Gửi qua App.
+2. **Hệ thống** nhận tin 🤖 -> AI phân tích ảnh & nội dung -> Đẩy về trung tâm.
+3. **Cơ quan chức năng** 👮 -> Nhận tin -> Xử lý -> Cập nhật kết quả.
+4. **Người dân** nhận thông báo "Đã xong" ✅ -> Nhận điểm thưởng CityPoint.
+
+---
+
+## 🌱 Hướng phát triển
+
+Dự án không chỉ dừng lại ở việc phản ánh sự cố mà còn hướng tới một hệ sinh thái đô thị thông minh toàn diện:
+
+### 🌐 Mở rộng & Kết nối
+
+- **Quy mô:** Triển khai đa thành phố, hỗ trợ đa ngôn ngữ (Quốc tế hóa).
+- **Bản đồ số:** Tích hợp bản đồ chi tiết thời gian thực, hiển thị vùng nguy hiểm và đường di tản.
+
+### 🧠 Nâng cấp AI & Dữ liệu
+
+- **Dự đoán rủi ro:** Phân tích dữ liệu lịch sử và thời tiết để cảnh báo sớm thiên tai, ngập lụt.
+- **Computer Vision:** Tự động nhận diện sự cố từ Camera giao thông và UAV.
+- **Chatbot thông minh:** Hỗ trợ người dân tra cứu, sơ tán và báo cáo tự động 24/7.
+
+### 🔒 Blockchain & Minh bạch
+
+- **Smart Contract:** Lưu trữ hồ sơ phản ánh vĩnh viễn, không thể chỉnh sửa.
+- **Token hóa CityPoint:** Chuyển đổi điểm thưởng thành token có giá trị thực tế trên mạng lưới Polygon/Ethereum.
+
+---
+
+## 📄 Giấy Phép
+
+Dự án này được phân phối dưới [GNU General Public License v3.0](LICENSE). Xem file `LICENSE` để biết thêm chi tiết.
+
+## 📞 Liên hệ Team DTU-DZ
+
+Nếu cần trao đổi gì thêm, vui lòng liên hệ:
+
+- **Lê Thanh Trường**: thanhtruong23111999@gmail.com
+- **Nguyễn Văn Nhân**: vannhan130504@gmail.com
+- **Nguyễn Ngọc Duy Thái**: kkdn011@gmail.com
+
+---
+
+© 2025 CityResQ360 – Code with ❤️ by DTU-DZ Team
