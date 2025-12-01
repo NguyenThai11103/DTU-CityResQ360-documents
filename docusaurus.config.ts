@@ -80,6 +80,10 @@ const config: Config = {
               label: 'Installation',
               to: '/Installation',
             },
+            {
+              label: 'Services',
+              to: '/Services',
+            },
           ],
         },
         {
