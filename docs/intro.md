@@ -20,7 +20,7 @@ CityResQ360 ra đời để giải quyết những vấn đề đó, hướng t�
 
 ---
 
-## 👥 Dự án này dành cho ai?
+## 👥 Đối tượng hướng đến
 
 ![DoiTuong](../static/img/doituong.png)
 

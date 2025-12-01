@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
@@ -17,7 +17,7 @@ const config: Config = {
   i18n: {
     defaultLocale: 'vi',
     locales: ['vi'],
-  }, 
+  },
   presets: [
     [
       'classic',
@@ -35,7 +35,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    metadata: [{name: 'keywords', content: 'smart city, urban monitoring, AI, IoT, city management'}],
+    metadata: [{ name: 'keywords', content: 'smart city, urban monitoring, AI, IoT, city management' }],
     image: 'img/Banner.png',
     navbar: {
       title: 'CityResQ360',
