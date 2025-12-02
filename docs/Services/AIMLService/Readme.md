@@ -1,5 +1,4 @@
-# AI/ML Service - Tổng quan
-
+# AI/ML Service 
 ## Giới thiệu
 
 Service AI/ML cung cấp các chức năng trí tuệ nhân tạo và học máy cho hệ thống CityResQ360.

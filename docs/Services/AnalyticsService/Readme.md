@@ -1,4 +1,4 @@
-# Analytics Service - Tổng quan
+# Analytics Service
 
 ## Giới thiệu
 

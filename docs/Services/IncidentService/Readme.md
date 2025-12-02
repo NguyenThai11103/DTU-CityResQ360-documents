@@ -1,5 +1,4 @@
-# Incident Service - Tổng quan
-
+# Incident Service
 ## Giới thiệu
 
 Incident Service quản lý toàn bộ vòng đời của các sự cố trong hệ thống CityResQ360.

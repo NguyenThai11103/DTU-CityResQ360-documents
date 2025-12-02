@@ -1,4 +1,4 @@
-# IoT Service - Tổng quan
+# IoT Service 
 
 ## Giới thiệu
 

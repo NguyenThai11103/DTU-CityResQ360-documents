@@ -1,4 +1,4 @@
-# Notification Service - Tổng quan
+# Notification Service 
 
 ## Giới thiệu
 

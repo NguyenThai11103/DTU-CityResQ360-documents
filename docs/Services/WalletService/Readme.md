@@ -1,4 +1,4 @@
-# Wallet Service - Tổng quan
+# Wallet Service
 
 ## Giới thiệu
 
