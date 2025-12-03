@@ -77,6 +77,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
+      id: 'BUILD_WITHOUT_DOCKER',
+      label: '🔧 Cài đặt không dùng Docker',
+    },
+    {
+      type: 'doc',
       id: 'License',
       label: '📜 License',
     },
