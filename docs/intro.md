@@ -1,4 +1,4 @@
-# 🌆 CityResQ360 — Chung tay vì một đô thị thông minh & an toàn
+# CityResQ360 — Chung tay vì một đô thị thông minh & an toàn
 
 ![Banner](../static/img/Banner.png)
 
