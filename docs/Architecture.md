@@ -1,4 +1,4 @@
-# 🗺️ Kiến Trúc Hệ Thống (System Architecture)
+#  Kiến Trúc Hệ Thống (System Architecture)
 
 ![s](../static/img/kientruc.png)
 
