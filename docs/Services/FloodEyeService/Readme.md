@@ -1,62 +1,166 @@
-# FloodEye Service
+# FloodEyeService - Phát hiện lũ lụt bằng AI
 
-## Giới thiệu
+## 📋 Tổng quan
 
-FloodEye Service là hệ thống giám sát và cảnh báo lũ lụt thông minh, sử dụng AI và IoT để dự đoán và phát hiện nguy cơ ngập lụt.
+**Ngôn ngữ lập trình:** Python 3.11 + FastAPI + PostGIS  
+**Cơ sở dữ liệu:** PostgreSQL với PostGIS (`floodeye_db`)  
+**Trạng thái:** 🟡 Đang phát triển
 
-## Chức năng chính
+Dịch vụ FloodEye sử dụng trí tuệ nhân tạo để phát hiện và phân tích lũ lụt từ hình ảnh, kết hợp với dữ liệu không gian địa lý để cảnh báo sớm và hỗ trợ ứng phó thảm họa.
 
-### 1. Giám sát Thời gian thực
+---
 
-- Theo dõi mực nước tại các điểm quan trắc
-- Đo lường lượng mưa
-- Giám sát tình trạng cống thoát nước
+## 🎯 Chức năng chính
 
-### 2. Dự báo và Cảnh báo
+### 🌊 Phát hiện lũ lụt
 
-- Dự đoán nguy cơ ngập lụt
-- Cảnh báo sớm cho người dân
-- Phân tích xu hướng thời tiết
+- **Phân tích hình ảnh bằng AI**
 
-### 3. Bản đồ Nguy cơ
+  - Deep learning models (CNN)
+  - Transfer learning (ResNet, EfficientNet)
+  - Custom trained models
+  - Real-time inference
 
-- Hiển thị khu vực nguy hiểm
-- Cập nhật real-time
-- Lịch sử ngập lụt
+- **Phát hiện mực nước**
 
-### 4. Tích hợp IoT
+  - Nhận diện mặt nước
+  - Ước lượng độ sâu
+  - So sánh với baseline
+  - Tracking water level changes
 
-- Kết nối với cảm biến mực nước
-- Đọc dữ liệu từ trạm khí tượng
-- Điều khiển hệ thống thoát nước tự động
+- **Phân loại mức độ lũ**
 
-## Mức độ Cảnh báo
+  - **Cấp 1 (Thấp)**: Ngập nhẹ, không nguy hiểm
+  - **Cấp 2 (Trung bình)**: Ngập vừa, cần theo dõi
+  - **Cấp 3 (Cao)**: Ngập nặng, nguy hiểm
+  - **Cấp 4 (Nghiêm trọng)**: Lũ lụt nghiêm trọng, khẩn cấp
 
-| Mức       | Mực nước | Màu     | Hành động           |
-| --------- | -------- | ------- | ------------------- |
-| An toàn   | < 1.0m   | 🟢 Xanh | Không cần hành động |
-| Theo dõi  | 1.0-1.5m | 🟡 Vàng | Theo dõi sát        |
-| Cảnh báo  | 1.5-2.0m | 🟠 Cam  | Chuẩn bị sơ tán     |
-| Nguy hiểm | > 2.0m   | 🔴 Đỏ   | Sơ tán ngay         |
+- **Tính điểm độ tin cậy**
+  - Confidence score (0-100%)
+  - Model uncertainty
+  - Multi-model ensemble
+  - Validation với ground truth
 
-## Machine Learning
+### 📸 Xử lý hình ảnh
 
-FloodEye sử dụng các mô hình ML:
+- **Tiền xử lý hình ảnh**
 
-- **LSTM**: Dự đoán mực nước
-- **Random Forest**: Phân loại mức độ rủi ro
-- **CNN**: Phân tích hình ảnh từ camera
+  - Resize và normalize
+  - Color correction
+  - Noise reduction
+  - Enhancement
 
-## Tích hợp
+- **Trích xuất đặc trưng**
 
-Service này tích hợp với:
+  - Feature extraction
+  - Edge detection
+  - Texture analysis
+  - Pattern recognition
 
-- **IoTService**: Nhận dữ liệu từ cảm biến
-- **AIMLService**: Dự đoán và phân tích
-- **NotificationService**: Gửi cảnh báo
-- **AnalyticsService**: Lưu trữ và phân tích dữ liệu lịch sử
-- **IncidentService**: Tạo sự cố tự động khi phát hiện ngập
+- **Suy luận mô hình**
 
-## License
+  - Model inference
+  - GPU acceleration
+  - Batch processing
+  - Caching results
+
+- **Xử lý hàng loạt**
+  - Batch image processing
+  - Queue management
+  - Parallel processing
+  - Progress tracking
+
+### 🗺️ Phân tích không gian địa lý
+
+- **Lập bản đồ lũ lụt**
+
+  - Flood extent mapping
+  - Inundation areas
+  - Water depth visualization
+  - Time-series animation
+
+- **Tính toán khu vực bị ảnh hưởng**
+
+  - Affected area calculation
+  - Population at risk
+  - Infrastructure impact
+  - Economic loss estimation
+
+- **Xác định vùng nguy hiểm**
+
+  - Risk zones identification
+  - Evacuation routes
+  - Safe zones mapping
+  - Emergency shelters
+
+- **Dữ liệu lũ lịch sử**
+  - Historical flood data
+  - Flood frequency analysis
+  - Return period estimation
+  - Trend analysis
+
+### 🔔 Hệ thống cảnh báo
+
+- **Cảnh báo lũ tự động**
+
+  - Automatic alert generation
+  - Multi-level warnings
+  - Escalation rules
+  - Alert distribution
+
+- **Thông báo mức độ rủi ro**
+
+  - Risk level notification
+  - Affected population
+  - Recommended actions
+  - Real-time updates
+
+- **Tích hợp với NotificationService**
+
+  - Push notifications
+  - SMS alerts
+  - Email warnings
+  - In-app notifications
+
+- **Cảnh báo sớm**
+  - Early warning system
+  - Predictive alerts
+  - Lead time optimization
+  - False alarm reduction
+
+---
+
+## 🔗 Tích hợp
+
+Dịch vụ này tích hợp với:
+
+- **MediaService**: Nhận hình ảnh để phân tích
+- **IoTService**: Nhận dữ liệu từ cảm biến mực nước
+- **IncidentService**: Tạo sự cố tự động khi phát hiện lũ
+- **NotificationService**: Gửi cảnh báo lũ lụt
+- **AnalyticsService**: Lưu trữ dữ liệu phân tích
+- **AIMLService**: Chia sẻ models và infrastructure
+
+---
+
+## 📊 Dữ liệu đầu vào
+
+### Hình ảnh
+
+- **Nguồn**: Camera, Drone, Satellite, Người dân
+- **Format**: JPEG, PNG
+- **Kích thước**: Tối thiểu 224x224
+- **Chất lượng**: Tốt, không bị mờ
+
+### Dữ liệu cảm biến
+
+- Mực nước real-time
+- Lượng mưa
+- Địa hình
+- Dữ liệu lịch sử
+
+---
+
+## 📄 Giấy phép
 
 Dự án này được phân phối dưới [GNU General Public License v3.0](https://github.com/MNM-DTU-DZ/CityResQ360-DTUDZ/blob/master/LICENSE).

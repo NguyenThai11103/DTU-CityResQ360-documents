@@ -1,4 +1,5 @@
-# AI/ML Service 
+# AI/ML Service
+
 ## Giới thiệu
 
 Service AI/ML cung cấp các chức năng trí tuệ nhân tạo và học máy cho hệ thống CityResQ360.
@@ -14,15 +15,6 @@ Service AI/ML cung cấp các chức năng trí tuệ nhân tạo và học máy
 
 - Huấn luyện và triển khai các mô hình ML
 - Tối ưu hóa hiệu suất mô hình
-
-### 3. API Endpoints
-
-```typescript
-// Ví dụ sử dụng AI/ML Service
-POST / api / aiml / predict;
-POST / api / aiml / analyze;
-GET / api / aiml / models;
-```
 
 ## Tích hợp
 

@@ -1,74 +1,128 @@
-# Wallet Service
+# WalletService - Quản lý ví điểm CityPoint
 
-## Giới thiệu
+## 📋 Tổng quan
 
-Wallet Service quản lý ví điện tử và các giao dịch tài chính trong hệ thống CityResQ360.
+**Ngôn ngữ lập trình:** Node.js + PostgreSQL + Redis  
+**Cơ sở dữ liệu:** PostgreSQL (shared database)  
+**Trạng thái:** 🟡 Đang phát triển
 
-## Chức năng chính
+Dịch vụ Wallet quản lý hệ thống ví điểm CityPoint, cho phép người dùng tích lũy điểm thưởng khi đóng góp phản ánh hữu ích và đổi điểm lấy phần thưởng trong hệ thống CityResQ360.
 
-### 1. Quản lý Ví
+---
 
-- Tạo ví người dùng
-- Nạp tiền
-- Rút tiền
-- Kiểm tra số dư
+## 🎯 Chức năng chính
 
-### 2. Giao dịch
+### 💰 Quản lý ví CityPoint
 
-- Chuyển tiền
-- Thanh toán dịch vụ
-- Lịch sử giao dịch
-- Hoàn tiền
+- **Tạo ví người dùng**
 
-### 3. Rewards & Incentives
+  - Tự động tạo khi đăng ký
+  - Ví mặc định cho mỗi user
+  - Số dư ban đầu: 0 points
+  - Unique wallet ID
 
-- Điểm thưởng
-- Cashback
-- Voucher
-- Loyalty program
+- **Kiểm tra số dư**
 
-### 4. Bảo mật
+  - Xem số điểm hiện tại
+  - Lịch sử biến động
+  - Điểm sắp hết hạn
+  - Tổng điểm tích lũy
 
-- Two-factor authentication
-- Transaction verification
-- Fraud detection
+- **Quản lý điểm**
+  - Cộng điểm (earn points)
+  - Trừ điểm (redeem points)
+  - Điểm thưởng (bonus points)
+  - Điểm hết hạn (expiry)
 
-## Loại Giao dịch
+### 🏆 Hệ thống tích điểm
 
-| Loại            | Mô tả                 | Phí  |
-| --------------- | --------------------- | ---- |
-| 💰 Nạp tiền     | Nạp vào ví            | 0%   |
-| 💸 Rút tiền     | Rút về ngân hàng      | 1%   |
-| 🔄 Chuyển khoản | Chuyển cho người khác | 0.5% |
-| 🎁 Thưởng       | Nhận điểm thưởng      | 0%   |
+- **Tích điểm từ hoạt động**
 
-## API Endpoints
+  - Gửi phản ánh hợp lệ: +10 points
+  - Phản ánh được xác nhận: +20 points
+  - Phản ánh được giải quyết: +30 points
+  - Phản ánh chất lượng cao: +50 points
+  - Bình luận hữu ích: +5 points
+  - Check-in hàng ngày: +2 points
 
-```typescript
-// Ví
-GET /api/wallet/balance
-POST /api/wallet/deposit
-POST /api/wallet/withdraw
+- **Điểm thưởng đặc biệt**
 
-// Giao dịch
-GET /api/wallet/transactions
-POST /api/wallet/transfer
-GET /api/wallet/transactions/:id
+  - Người dùng tích cực: +100 points/tháng
+  - Milestone rewards
+  - Event bonuses
+  - Referral rewards
 
-// Rewards
-GET /api/wallet/rewards
-POST /api/wallet/redeem
-```
+- **Hệ số nhân điểm**
+  - Người dùng mới: x1.5 (30 ngày đầu)
+  - Người dùng VIP: x2.0
+  - Sự kiện đặc biệt: x3.0
+  - Khu vực ưu tiên: x1.2
 
-## Tích hợp
+### 🎁 Đổi điểm thưởng
 
-Service này tích hợp với:
+- **Voucher & giảm giá**
 
-- **CoreAPI**: API thanh toán
-- **IncidentService**: Thưởng cho người báo cáo sự cố
-- **NotificationService**: Thông báo giao dịch
-- **AnalyticsService**: Phân tích giao dịch
+  - Voucher mua sắm
+  - Giảm giá dịch vụ
+  - Phiếu quà tặng
+  - Mã khuyến mãi
 
-## License
+- **Dịch vụ đô thị**
+
+  - Giảm phí dịch vụ công
+  - Ưu tiên xử lý phản ánh
+  - Truy cập tính năng premium
+  - Hỗ trợ ưu tiên
+
+- **Quyên góp**
+
+  - Quyên góp cho cộng đồng
+  - Hỗ trợ người khó khăn
+  - Dự án môi trường
+  - Từ thiện
+
+- **Quà tặng**
+  - Merchandise
+  - Sản phẩm đối tác
+  - Thẻ cào điện thoại
+  - E-vouchers
+
+### 📊 Lịch sử giao dịch
+
+- **Theo dõi giao dịch**
+
+  - Lịch sử đầy đủ
+  - Lọc theo loại
+  - Tìm kiếm giao dịch
+  - Export báo cáo
+
+- **Loại giao dịch**
+
+  - Earn (Tích điểm)
+  - Redeem (Đổi điểm)
+  - Bonus (Thưởng)
+  - Expired (Hết hạn)
+  - Refund (Hoàn điểm)
+
+- **Thông tin chi tiết**
+  - Số điểm
+  - Ngày giờ
+  - Mô tả
+  - Trạng thái
+  - Reference ID
+
+---
+
+## 🔗 Tích hợp
+
+Dịch vụ này tích hợp với:
+
+- **CoreAPI**: API quản lý ví và giao dịch
+- **IncidentService**: Tích điểm khi phản ánh được xử lý
+- **NotificationService**: Thông báo khi có điểm mới/đổi điểm
+- **AnalyticsService**: Phân tích hoạt động ví
+- **RabbitMQ**: Lắng nghe sự kiện tích điểm
+
+## 📄 Giấy phép
 
 Dự án này được phân phối dưới [GNU General Public License v3.0](https://github.com/MNM-DTU-DZ/CityResQ360-DTUDZ/blob/master/LICENSE).

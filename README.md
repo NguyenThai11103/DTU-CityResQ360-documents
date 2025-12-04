@@ -8,7 +8,7 @@ CityResQ360 là hệ thống web + mobile mã nguồn mở giúp người dân, 
 
 ---
 
-## 🧭 Giới thiệu & Ý tưởng tổng thể
+## 🧭 Giới thiệu & ý tưởng tổng thể
 
 Trong các đô thị hiện đại, việc phát hiện sớm và xử lý nhanh các sự cố như kẹt xe, ngập úng, cháy nổ, tai nạn giao thông, rác thải hoặc vi phạm công cộng đóng vai trò quan trọng. CityResQ360 ra đời như "mắt thần đô thị 360°", nơi người dân, chính quyền và AI cùng giám sát, phản hồi và cảnh báo các vấn đề đô thị theo thời gian thực.
 
@@ -157,68 +157,68 @@ Hệ thống **CityResQ360** được phát triển nhằm phục vụ nhiều n
 
 ---
 
-# 🗺️ Kiến Trúc Hệ Thống (System Architecture)
+# 🗺️ Kiến trúc hệ thống
 
-Tài liệu này mô tả kiến trúc Microservices và Hướng sự kiện (Event-Driven Architecture) của hệ thống, bao gồm các công nghệ cốt lõi, dịch vụ và luồng dữ liệu chính.
+![s](/static/img/kientruc.png)
 
 ---
 
-## ⚙️ Công Nghệ và Framework
+## ⚙️ Công nghệ sử dụng
 
 Hệ thống sử dụng đa dạng các công nghệ hiện đại, tập trung vào hiệu năng và khả năng mở rộng:
 
-| Phân Loại                              | Công Nghệ Cụ Thể                                | Vai trò                                                              |
+| Phân loại                              | Công nghệ cụ thể                                | Vai trò                                                              |
 | :------------------------------------- | :---------------------------------------------- | :------------------------------------------------------------------- |
-| **Giao diện Người dùng (UI)**          | **React Native**                                | Phát triển ứng dụng di động đa nền tảng.                             |
-| **Cổng API (Gateway)**                 | **API Gateway**                                 | Bảo mật, giới hạn tốc độ (Rate Limit), xác thực JWT.                 |
+| **Giao diện người dùng (UI)**          | **React Native**                                | Phát triển ứng dụng di động đa nền tảng.                             |
+| **Cổng API (Gateway)**                 | **API Gateway**                                 | Bảo mật, giới hạn tốc độ (Rate limit), xác thực JWT.                 |
 | **Backend/Core APIs**                  | **Laravel** (PHP), **Python** (FastAPI)         | Phát triển dịch vụ RFI/Public API và các microservices.              |
 | **Xác thực (Auth)**                    | **Authenticator**, **JWT**                      | Quản lý định danh và truy cập (IDDC), xác thực người dùng.           |
 | **Tin nhắn/Sự kiện**                   | **RabbitMQ** , **MQTT Broker** (EMQX/Mosquitto) | Xử lý hàng đợi sự kiện tốc độ cao và tin nhắn từ cảm biến (Sensors). |
-| **Cơ sở dữ liệu (Database)**           | **PostgreSQL/PostGIS**                          | Dữ liệu quan hệ và dữ liệu địa lý (Geo/PoI).                         |
-| **Lưu trữ đối tượng (Object Storage)** | **MinIO / S3**                                  | Lưu trữ dữ liệu media (Media Service).                               |
+| **Cơ sở dữ liệu (Database)**           | **PostgreSQL/PostGIS**                          | Dữ liệu quan hệ và dữ liệu địa lý (Geo/Poi).                         |
+| **Lưu trữ đối tượng (Object storage)** | **MinIO / S3**                                  | Lưu trữ dữ liệu media (Media service).                               |
 | **Tìm kiếm (Search)**                  | **OpenSearch**                                  | Cung cấp khả năng tìm kiếm nâng cao (Search API).                    |
-| **Cache/Hàng đợi**                     | **Redis Queue/Cache**                           | Caching, quản lý hàng đợi cho Notifier Service và Rule Engine.       |
-| **Rule Engine**                        | **NDx/Drools**                                  | Xử lý logic nghiệp vụ và các quy tắc cảnh báo.                       |
+| **Cache/Hàng đợi**                     | **Redis Queue/Cache**                           | Caching, quản lý hàng đợi cho Notifier service và Rule engine.       |
+| **Rule engine**                        | **NDx/Drools**                                  | Xử lý logic nghiệp vụ và các quy tắc cảnh báo.                       |
 
 ---
 
-## 🛠️ Các Dịch Vụ và Chức Năng Chính (Microservices)
+## 🛠️ Các dịch vụ và chức năng chính (Microservices)
 
 Hệ thống được tổ chức thành các dịch vụ độc lập (Microservices), giao tiếp chủ yếu qua HTTP (REST) và RabbitMQ/MQTT.
 
-### 1. Dịch vụ Cốt lõi
+### 1. Dịch vụ cốt lõi
 
-- **RFI/Public API:** Điểm truy cập chính cho các giao diện người dùng. Xử lý logic tổng hợp dữ liệu (Aggregation) và caching (Vũ Cache).
+- **RFI/Public API:** Điểm truy cập chính cho các giao diện người dùng. Xử lý logic tổng hợp dữ liệu (Aggregation) và caching (Vũ cache).
 
-- **Media Service:** Quản lý và lưu trữ tệp tin đa phương tiện vào **MinIO / S3**.
+- **Media service:** Quản lý và lưu trữ tệp tin đa phương tiện vào **MinIO / S3**.
 
-- **Wallet Service:** Xử lý các chức năng liên quan đến ví điện tử/thanh toán.
+- **Wallet service:** Xử lý các chức năng liên quan đến ví điện tử/thanh toán.
 
 - **Search API:** Cung cấp giao diện tìm kiếm dữ liệu thông qua **OpenSearch**.
 
-### 2. Dịch vụ IoT và Phân tích Dữ liệu
+### 2. Dịch vụ IoT và phân tích dữ liệu
 
-- **IoT Adapter:** Nhận tin nhắn từ **MQTT Broker** (Sensors), xử lý và đưa vào luồng sự kiện **RabbitMQ**.
+- **IoT adapter:** Nhận tin nhắn từ **MQTT broker** (Sensors), xử lý và đưa vào luồng sự kiện **RabbitMQ**.
 
 - **NLP (Natural Language Processing):** Phân tích và xử lý ngôn ngữ tự nhiên.
 
 - **Vision (Vision Python/FastAPI):** Xử lý thị giác máy tính, tạo ra các sự kiện **`vision_alert`**.
 
-- **Geo/PoI:** Xử lý dữ liệu vị trí và điểm quan tâm (Point of Interest) sử dụng **PostGIS**.
+- **Geo/Poi:** Xử lý dữ liệu vị trí và điểm quan tâm (Point of interest) sử dụng **PostGIS**.
 
-### 3. Dịch vụ Quản lý và Thông báo
+### 3. Dịch vụ quản lý và thông báo
 
-- **Report Service:** Tạo báo cáo, lưu trữ vào **DB Report** và **`Produce report observed`** event.
+- **Report service:** Tạo báo cáo, lưu trữ vào **DB Report** và **`Produce report observed`** event.
 
-- **Rule Engine (NDx/Drools):** Tiêu thụ các sự kiện cảnh báo từ Vision và Report, áp dụng luật nghiệp vụ để **`Produce alert triggered`**.
+- **Rule engine (NDx/Drools):** Tiêu thụ các sự kiện cảnh báo từ Vision và Report, áp dụng luật nghiệp vụ để **`Produce alert triggered`**.
 
-- **Incident Service:** Xử lý và quản lý vòng đời của các sự cố, lưu trữ vào **DB Incident**.
+- **Incident service:** Xử lý và quản lý vòng đời của các sự cố, lưu trữ vào **DB Incident**.
 
-- **Notifier Service:** Nhận sự kiện **`alert triggered`** và phân phối thông báo (sử dụng **Redis Queue/Cache**) tới ứng dụng (React Native App) và các nền tảng khác (Laravel Webhook).
+- **Notifier service:** Nhận sự kiện **`alert triggered`** và phân phối thông báo (sử dụng **Redis Queue/Cache**) tới ứng dụng (React Native App) và các nền tảng khác (Laravel Webhook).
 
 ---
 
-## ➡️ Luồng Dữ liệu Chính
+## ➡️ Luồng dữ liệu chính
 
 1.  **Truy cập Ứng dụng:** **React Native App** gửi yêu cầu qua **HTTPS + JWT** đến **API Gateway**.
 
@@ -244,7 +244,7 @@ Hệ thống được tổ chức thành các dịch vụ độc lập (Microser
 
 - Vision: YOLOv8 / Detectron2 cho phát hiện đối tượng/sự cố từ ảnh.
 - NLP: PhoBERT / XLM-R cho phân loại mô tả tiếng Việt và trích xuất thực thể.
-- Fusion Layer: hợp nhất kết quả ảnh, văn bản và metadata để đưa ra nhãn cuối cùng và mức ưu tiên.
+- Fusion layer: hợp nhất kết quả ảnh, văn bản và metadata để đưa ra nhãn cuối cùng và mức ưu tiên.
 - Đánh giá: Precision, Recall, F1-score, mAP và chỉ số độ tin cậy AI.
 - Dữ liệu lưu trữ theo chuẩn NGSI-LD để dễ tích hợp và chia sẻ.
 
@@ -288,7 +288,7 @@ Hệ thống được tổ chức thành các dịch vụ độc lập (Microser
 | 🏆 **CityPoint**                  | Gamification khuyến khích người dân đóng góp  |
 | 🗺️ **Bản đồ cộng đồng**           | Thể hiện tỷ lệ xử lý & phản hồi minh bạch     |
 
-### 🔒 Blockchain & Civic Token
+### 🔒 Blockchain & civic token
 
 - Lưu trữ phản ánh và xác nhận xử lý bằng **smart contract**.
 
@@ -330,7 +330,7 @@ Xem [CHANGELOG](https://github.com/Truongpyeo/CityResQ360-DTUDZ/blob/master/CHAN
 
 ---
 
-## 📄 Giấy Phép
+## 📄 Giấy phép
 
 Dự án này được phân phối dưới [GNU General Public License v3.0](LICENSE). Xem file `LICENSE` để biết thêm chi tiết.
 
