@@ -298,9 +298,45 @@ Hệ thống được tổ chức thành các dịch vụ độc lập (Microser
 
 ---
 
-## 🛠 Hướng dẫn cài đặt nhanh (phát triển — Windows)
+## 🛠️ Hướng dẫn cài đặt
 
-_Hướng dẫn chi tiết sẽ được cập nhật sau._
+### 🚀 Cài đặt nhanh với docker
+
+**Yêu cầu**: Docker, Docker Compose, Git
+
+```bash
+# 1. Clone repository
+git clone https://github.com/MNM-DTU-DZ/CityResQ360-DTUDZ.git
+cd CityResQ360-DTUDZ
+
+# 2. Cấu hình environment
+cp modules/CoreAPI/.env.example modules/CoreAPI/.env
+
+# 3. Tạo cấu hình MQTT
+mkdir -p infrastructure/mosquitto/config
+cat > infrastructure/mosquitto/config/mosquitto.conf << 'EOF'
+listener 1883
+allow_anonymous true
+persistence true
+persistence_location /mosquitto/data/
+log_dest file /mosquitto/log/mosquitto.log
+EOF
+
+# 4. Khởi động hệ thống
+cd infrastructure/docker
+docker compose up -d
+
+# 5. Chạy migrations
+docker exec -it cityresq-coreapi php artisan migrate --seed
+docker exec -it cityresq-coreapi php artisan key:generate
+```
+
+**Truy cập**:
+
+- 🌐 CoreAPI: http://localhost:8000
+- 📱 Web App: http://localhost:3000
+- 📦 MinIO Console: http://localhost:9001 (minioadmin/minioadmin)
+- 🐰 RabbitMQ: http://localhost:15672 (cityresq/cityresq_password)
 
 ---
 
@@ -312,6 +348,7 @@ Nếu bạn phát hiện lỗi, vui lòng tạo issue mới với:
 - Các bước tái hiện
 - Screenshots nếu có
 - Môi trường (browser, OS...)
+- Báo cáo lỗi và đề xuất tính năng mới tại [GitHub Issues](https://github.com/MNM-DTU-DZ/CityResQ360-DTUDZ/issues)
 
 ---
 
