@@ -165,23 +165,23 @@ Hệ thống **CityResQ360** được phát triển nhằm phục vụ nhiều n
 
 ## ⚙️ Công nghệ sử dụng
 
-Hệ thống sử dụng đa dạng các công nghệ hiện đại, tập trung vào hiệu năng và khả năng mở rộng:
+Hệ thống được thiết kế theo kiến trúc Microservices hiện đại, đảm bảo khả năng mở rộng và xử lý dữ liệu lớn:
 
-| Phân loại                              | Công nghệ cụ thể                                | Vai trò                                                              |
-| :------------------------------------- | :---------------------------------------------- | :------------------------------------------------------------------- |
-| **Giao diện người dùng (UI)**          | **React Native**                                | Phát triển ứng dụng di động đa nền tảng.                             |
-| **Cổng API (Gateway)**                 | **API Gateway**                                 | Bảo mật, giới hạn tốc độ (Rate limit), xác thực JWT.                 |
-| **Backend/Core APIs**                  | **Laravel** (PHP), **Python** (FastAPI)         | Phát triển dịch vụ RFI/Public API và các microservices.              |
-| **Xác thực (Auth)**                    | **Authenticator**, **JWT**                      | Quản lý định danh và truy cập (IDDC), xác thực người dùng.           |
-| **Tin nhắn/Sự kiện**                   | **RabbitMQ** , **MQTT Broker** (EMQX/Mosquitto) | Xử lý hàng đợi sự kiện tốc độ cao và tin nhắn từ cảm biến (Sensors). |
-| **Cơ sở dữ liệu (Database)**           | **PostgreSQL/PostGIS**                          | Dữ liệu quan hệ và dữ liệu địa lý (Geo/Poi).                         |
-| **Lưu trữ đối tượng (Object storage)** | **MinIO / S3**                                  | Lưu trữ dữ liệu media (Media service).                               |
-| **Tìm kiếm (Search)**                  | **OpenSearch**                                  | Cung cấp khả năng tìm kiếm nâng cao (Search API).                    |
-| **Cache/Hàng đợi**                     | **Redis Queue/Cache**                           | Caching, quản lý hàng đợi cho Notifier service và Rule engine.       |
-| **Rule engine**                        | **NDx/Drools**                                  | Xử lý logic nghiệp vụ và các quy tắc cảnh báo.                       |
+| Thành phần             | Công nghệ sử dụng                                                  |
+| :--------------------- | :----------------------------------------------------------------- |
+| **Mobile App**         | `React Native` (iOS & Android)                                     |
+| **Web Dashboard**      | `ReactJS` (Quản lý cho cơ quan chức năng)                          |
+| **API Gateway**        | `Nginx` (Load Balancer & Reverse Proxy)                            |
+| **Core API**           | `Laravel 12` (PHP), `Laravel Sanctum` (Auth), `Reverb` (WebSocket) |
+| **Microservices**      | `Node.js`, `Python FastAPI`, `Go`                                  |
+| **AI/ML Services**     | `Python` (Computer Vision, NLP, Flood Prediction, Analytics)       |
+| **Message Queue**      | `RabbitMQ` (Event-driven), `MQTT` (IoT Communication)              |
+| **Cache & Session**    | `Redis`                                                            |
+| **Databases**          | `PostgreSQL` + `PostGIS`, `MySQL`, `MongoDB`, `OpenSearch`         |
+| **Storage**            | `MinIO` (Object Storage - S3 Compatible)                           |
+| **Container Platform** | `Docker`, `Docker Compose`                                         |
 
 ---
-
 ## 🛠️ Các dịch vụ và chức năng chính (Microservices)
 
 Hệ thống được tổ chức thành các dịch vụ độc lập (Microservices), giao tiếp chủ yếu qua HTTP (REST) và RabbitMQ/MQTT.
@@ -300,43 +300,94 @@ Hệ thống được tổ chức thành các dịch vụ độc lập (Microser
 
 ## 🛠️ Hướng dẫn cài đặt
 
-### 🚀 Cài đặt nhanh với docker
+### 🚀 Cài đặt nhanh với Docker
 
 **Yêu cầu**: Docker, Docker Compose, Git
+
+#### **Cách 1: Dùng script tự động (Khuyến nghị)**
+
+**Linux/macOS:**
 
 ```bash
 # 1. Clone repository
 git clone https://github.com/MNM-DTU-DZ/CityResQ360-DTUDZ.git
 cd CityResQ360-DTUDZ
 
-# 2. Cấu hình environment
-cp modules/CoreAPI/.env.example modules/CoreAPI/.env
+# 2. Chạy script quản lý
+chmod +x scripts/local/run.sh
+./scripts/local/run.sh
 
-# 3. Tạo cấu hình MQTT
-mkdir -p infrastructure/mosquitto/config
-cat > infrastructure/mosquitto/config/mosquitto.conf << 'EOF'
-listener 1883
-allow_anonymous true
-persistence true
-persistence_location /mosquitto/data/
-log_dest file /mosquitto/log/mosquitto.log
-EOF
+# Menu sẽ hiện:
+# 1) Start all services       - Khởi động tất cả
+# 2) Stop all services        - Dừng tất cả
+# 3) Restart all services     - Khởi động lại
+# 4) Clean rebuild            - Xóa và build lại từ đầu
+# 5) View logs               - Xem logs
+# 6) Check status            - Kiểm tra trạng thái
+# 7) Run migrations          - Chạy database migrations
+# 8) Test endpoints          - Test API endpoints
+```
 
-# 4. Khởi động hệ thống
+**Windows:**
+
+_Cách 1 - Git Bash (Khuyến nghị):_
+
+```bash
+# 1. Clone repository
+git clone https://github.com/MNM-DTU-DZ/CityResQ360-DTUDZ.git
+cd CityResQ360-DTUDZ
+
+# 2. Right-click trong folder → "Git Bash Here"
+
+# 3. Fix line endings nếu cần
+sed -i 's/\r$//' scripts/local/run.sh
+
+# 4. Chạy script
+chmod +x scripts/local/run.sh
+./scripts/local/run.sh
+```
+
+_Cách 2 - PowerShell/CMD:_
+
+```powershell
+# 1. Clone repository
+git clone https://github.com/MNM-DTU-DZ/CityResQ360-DTUDZ.git
+cd CityResQ360-DTUDZ
+
+# 2. Chạy Docker Compose trực tiếp
 cd infrastructure/docker
 docker compose up -d
+
+# 3. Chạy migrations
+docker exec -it cityresq-coreapi php artisan migrate --seed
+docker exec -it cityresq-coreapi php artisan key:generate
+docker exec -it cityresq-coreapi php artisan config:cache
+```
+
+#### **Cách 2: Chạy thủ công**
+
+```bash
+# 1. Clone repository
+git clone https://github.com/MNM-DTU-DZ/CityResQ360-DTUDZ.git
+cd CityResQ360-DTUDZ
+
+# 2. Khởi động databases trước
+cd infrastructure/docker
+docker compose up -d mysql postgres redis mongodb rabbitmq minio
+
+# 3. Đợi 20 giây cho databases khởi động
+sleep 20
+
+# 4. Khởi động application services
+docker compose up -d coreapi media-service iot-service incident-service \
+    aiml-service analytics-service search-service floodeye-service
 
 # 5. Chạy migrations
 docker exec -it cityresq-coreapi php artisan migrate --seed
 docker exec -it cityresq-coreapi php artisan key:generate
+docker exec -it cityresq-coreapi php artisan config:cache
+
 ```
-
-**Truy cập**:
-
-- 🌐 CoreAPI: http://localhost:8000
-- 📱 Web App: http://localhost:3000
-- 📦 MinIO Console: http://localhost:9001 (minioadmin/minioadmin)
-- 🐰 RabbitMQ: http://localhost:15672 (cityresq/cityresq_password)
 
 ---
 
@@ -373,12 +424,19 @@ Dự án này được phân phối dưới [GNU General Public License v3.0](LI
 
 ---
 
+## 📱 CityResQ360 Application
+
+<div align="start">
+  <img src="./static/qrios.png" alt="CityResQ360 Logo" width="150"/>
+  <br/>
+  <img src="https://img.shields.io/badge/Download-iOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="iOS App"/>
+</div>
+
+
 ## 📞 Liên hệ
 
 - Lê Thanh Trường : <u>thanhtruong23111999@gmail.com</u>
-
 - Nguyễn Văn Nhân : <u>vannhan130504@gmail.com</u>
-
 - Nguyễn Ngọc Duy Thái : <u>kkdn011@gmail.com</u>
 
 ---

@@ -151,4 +151,14 @@ git push origin feat/my-feature
 
 Dự án này được phân phối dưới [GNU General Public License v3.0](https://github.com/MNM-DTU-DZ/CityResQ360-DTUDZ/blob/master/LICENSE). Xem file `LICENSE` để biết thêm chi tiết.
 
+<!-- ##  CityResQ360 Application
+
+<div align="start">
+  <img src="/img/qrios.png" alt="CityResQ360 Logo" width="150"/>
+  <br/>
+  <img src="https://img.shields.io/badge/Download-iOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="iOS App"/>
+</div> -->
+
+---
+
 © 2025 CityResQ360 – Được phát triển với ❤️ bởi Nhóm DTU-DZ
